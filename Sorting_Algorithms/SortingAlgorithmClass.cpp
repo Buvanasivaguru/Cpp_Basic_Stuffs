@@ -58,9 +58,32 @@ int * SortingAlgorithmClass::BubbleSort(int * inputArray, int arraySize)
 	return inputArray;
 }
 
+//Selection Sort
+
 int * SortingAlgorithmClass::SelectionSort(int * inputArray, int arraySize)
 {
-	return nullptr;
+	int i, j, minValue;
+
+	for (i = 0; i < arraySize - 1; i++)
+	{
+		minValue = i;
+		cout << "Iteration " << i << " Starts" << endl << "-----------------------" << endl;
+		for (j = i + 1; j < arraySize; j++) 
+		{
+			if (inputArray[j] < inputArray[minValue])
+				minValue = j;
+		}
+
+		swap(&inputArray[minValue], &inputArray[i]);
+		printsortedArray(inputArray, arraySize);
+		cout << "Iteration End" << endl << "-----------------------" << endl;
+
+	}
+
+	cout << '\n' << "Selection Sorted Array is..." << endl;
+	printsortedArray(inputArray, arraySize);
+
+	return inputArray;
 }
 
 int * SortingAlgorithmClass::InsertionSort(int * inputArray, int arraySize)
