@@ -88,7 +88,25 @@ int * SortingAlgorithmClass::SelectionSort(int * inputArray, int arraySize)
 
 int * SortingAlgorithmClass::InsertionSort(int * inputArray, int arraySize)
 {
-	return nullptr;
+	int i, j, insert;
+	
+	for (i = 1; i < arraySize; i++)
+	{
+		insert = inputArray[i];
+		cout << "Iteration " << i << " Starts" << endl << "-----------------------" << endl;
+		for (j = i - 1; j >= 0 && inputArray[j] > insert; j--)
+		{
+			inputArray[j+1] = inputArray[j];
+			printsortedArray(inputArray, arraySize);
+		}
+		inputArray[j+1] = insert;
+		printsortedArray(inputArray, arraySize);
+		cout << "Iteration End" << endl << "-----------------------" << endl;
+	}
+	cout << '\n' << "Insertion Sorted Array is..." << endl;
+	printsortedArray(inputArray, arraySize);
+
+	return inputArray;
 }
 
 int * SortingAlgorithmClass::MergeSort(int * inputArray, int arraySize)
